@@ -443,7 +443,7 @@ class TransactionBuilder
      * @param   string $lineNumber  Custom Line number, defaults to auto-incremented number if null
      * @return  TransactionBuilder
      */
-    public function withLine($amount, $quantity, $itemCode, $taxCode, $lineNumber = null)
+    public function withLine($amount, $quantity, $itemCode, $taxCode, $lineNumber = null,$description)
     {
         if($lineNumber === null) {
             $lineNumber = $this->_line_number;
@@ -453,7 +453,8 @@ class TransactionBuilder
             'quantity' => $quantity,
             'amount' => $amount,
             'taxCode' => $taxCode,
-            'itemCode' => $itemCode
+            'itemCode' => $itemCode,
+            'description'=>$description
         ];
         array_push($this->_model['lines'], $l);
         $this->_line_number++;
