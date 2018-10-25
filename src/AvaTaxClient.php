@@ -15065,4 +15065,15 @@ class TransactionBuilder
             'adjustmentReason' => $reason
         ];
     }
+
+    public function addCustomParameter($customParameter)
+    {
+        if (!empty($customParameter)) {
+            foreach ($customParameter as $key => $parameter) {
+                $this->_model[$key] = $parameter;
+            }
+        }
+    }
+
+
 }
